@@ -1,1 +1,21 @@
-<h1>Hi<h1>
+<div id="messageForm">
+
+Text: <input type="text" size="45" id="message"> <input type="button" value=" Save " id="sendMessage">
+
+</div>
+
+
+
+<div id="messages">
+<%= @messages.each do |message| %>
+
+<% end %>
+</div>
+
+
+
+<div id="messageBoxTemplate" class="messageBox"></div>
+
+<script>
+console.log($('#messageBoxTemplate'));
+</script>

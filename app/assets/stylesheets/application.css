@@ -216,7 +216,15 @@ td { vertical-align: top; }
   margin:auto;
 }
 
+#messageBoxTemplate {
+  display:none;
+}
 
+.messageBox {
+  padding:0.5em;
+  margin-bottom:2em;
+  background:#F6F6F6;
+}
 
 
 

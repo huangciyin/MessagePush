@@ -7,11 +7,28 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//
+var socket = io.connect('http://localhost:3080/');
 
+var sendMessage = function(_message) {
+  if(!_message) return false;
+  addMessageBox(_message);
+  socket.emit('message', { message: _message });
+};
+
+//
+var addMessageBox = function(_message) {
+  if(!_message) return false;
+  console.log("in here, _message")
+  var box = $("#messageBoxTemplate").clone();
+  box.attr("id", "");
+  box.html(_message);
+  $('#messages').prepend(box);
+  box.fadeIn(800);
+}
 
 $(document).ready(function(){
 
-  var socket = io.connect('http://localhost:3080/');
 
   // Send Id
   $('#sendButton').click(function(){
@@ -22,10 +39,18 @@ $(document).ready(function(){
   $('#myID').click(function(){
     socket.emit('get userid'); 
   });
+
+  // Save Message
+  $('#sendMessage').click(function(){
+    console.log('dada');
+    sendMessage($('#message').val());
+  });
   
   // Receive Message
   socket.on('message', function (data) {
-    $('#data').append(data.message + '<br />');
-  }); 
+    console.log(data.message);
+    addMessageBox(data.message);
+    //$('#messages').append(data.message + '<br />');
+  });
 
-});
+}); 
