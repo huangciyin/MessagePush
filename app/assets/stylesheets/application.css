@@ -212,27 +212,31 @@ td { vertical-align: top; }
    ========================================================================== */
 
 #main, header {
-  width:800px;
+  width:80%;
   margin:auto;
+}
+
+#messageForm {
+  margin-bottom:2em;
+  overflow:hidden;
 }
 
 #messageBoxTemplate {
   display:none;
+  overflow:hidden;
 }
 
 .messageBox {
   padding:0.5em;
   margin-bottom:2em;
   background:#F6F6F6;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
 }
 
-
-
-
-
-
-
-
+.clientMessage {
+  background:#837940;
+}
 
 
 

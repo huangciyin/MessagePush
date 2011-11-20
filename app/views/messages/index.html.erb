@@ -1,15 +1,16 @@
+
 <div id="messageForm">
+<%= form_for Message.new, :remote => true do |f| %>
 
-Text: <input type="text" size="45" id="message"> <input type="button" value=" Save " id="sendMessage">
+    <%= f.label :title %>
+    <%= f.text_field :title, :id => "message" %>
 
+  <%= f.submit 'Save', :id => "sendMessage" %>
+<% end %>
 </div>
 
-
-
 <div id="messages">
-<%= @messages.each do |message| %>
-
-<% end %>
+<%= render @messages %>
 </div>
 
 
