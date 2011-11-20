@@ -1,8 +1,9 @@
 class MessagesController < ApplicationController
   respond_to :html, :js
+  before_filter :authenticate_user!
 
   def index
-    @messages = Message.find(:all, :order => "created_at desc")
+    @messages = current_user.messages.order("created_at desc")
   end
 
   def create

@@ -15,7 +15,13 @@
 <div id="container">
 
   <header>
-    <p><%=link_to 'Login', new_user_session_path %></p>
+    <p>
+    <% if user_signed_in? %>
+      <%=link_to 'Logout', destroy_user_session_path, :method => :delete %></p>
+    <% else %>
+      <%=link_to 'Login', new_user_session_path %>
+    <% end %>
+    
     <h1>Message Push</h1>
   </header>
 
