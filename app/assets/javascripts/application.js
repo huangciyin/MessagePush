@@ -8,7 +8,7 @@
 //= require jquery_ujs
 //= require_tree .
 //
-var socket = io.connect('http://192.168.178.39:3080/');
+var socket = io.connect('http://localhost:3080/');
 
 var sendMessage = function(_message) {
   if(!_message) return false;
